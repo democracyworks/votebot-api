@@ -90,7 +90,7 @@ var chains = [
 				errormsg: '',
 				next: 'last_name',
 				admin_order: 2,
-			},	
+			},
 			{
 				name: 'last_name',
 				msg: '[[prompt_last_name]]',
@@ -115,8 +115,8 @@ var chains = [
 			{
 				name: 'state',
 				msg: '[[prompt_state]]',
-				errormsg: '[[error_state]]', 
-				next: 'address', 
+				errormsg: '[[error_state]]',
+				next: 'address',
 				admin_order: 6,
 			},
 			{
@@ -138,7 +138,7 @@ var chains = [
 				msg: '[[prompt_date_of_birth]]',
 				errormsg: '[[error_date_of_birth]]',
 				next: 'will_be_18',
-				admin_order: 9, 
+				admin_order: 9,
 			},
 			{
 				name: 'will_be_18',
@@ -269,7 +269,7 @@ var chains = [
 				name: 'complete',
 				msg: '[[msg_complete]]',
 				errormsg: '',
-				next: 'share', 
+				next: 'share',
 				advance: false,
 				admin_order: 20,
 			},
@@ -277,7 +277,7 @@ var chains = [
 				name: 'incomplete',
 				msg: '[[prompt_incomplete]]',
 				errormsg: '',
-				next: 'restart', 
+				next: 'restart',
 				admin_special: true,
 				admin_order: 21,
 			},
@@ -366,7 +366,7 @@ var chains = [
 				name: 'phone',
 				msg: '[[prompt_phone]]',
 				errormsg: '[[error_phone]]',
-				next: 'per_state', 
+				next: 'per_state',
 				admin_special: true,
 				admin_order: 32,
 			},
@@ -589,7 +589,7 @@ var chains = [
 				name: 'ineligible',
 				msg: '[[prompt_ineligible]]',
 				errormsg: '',
-				next: 'share', 
+				next: 'share',
 				admin_special: true,
 				admin_order: 51,
 			}
@@ -640,8 +640,8 @@ var chains = [
 			{
 				name: 'state',
 				msg: '[[prompt_state]]',
-				errormsg: '[[error_state]]', 
-				next: 'address', 
+				errormsg: '[[error_state]]',
+				next: 'address',
 				admin_order: 6,
 			},
 			{
@@ -651,7 +651,7 @@ var chains = [
 				next: 'early_voting_prompt',
 				admin_order: 7,
 			},
-			
+
 		]
 	},
 	{
@@ -743,8 +743,8 @@ var chains = [
 			{
 				name: 'state',
 				msg: '[[prompt_state]]',
-				errormsg: '[[error_state]]', 
-				next: 'address', 
+				errormsg: '[[error_state]]',
+				next: 'address',
 				admin_order: 6,
 			},
 			{
@@ -849,8 +849,8 @@ var chains = [
 			{
 				name: 'state',
 				msg: '[[prompt_state]]',
-				errormsg: '[[error_state]]', 
-				next: 'address', 
+				errormsg: '[[error_state]]',
+				next: 'address',
 				admin_order: 6,
 			},
 			{
@@ -1043,7 +1043,7 @@ function run()
 			}
 			return 'lol';
 		})
-		
+
 		.catch(function(err) { console.error(err, err.stack); })
 		.finally(function() { setTimeout(process.exit, 500); });
 }
@@ -1073,4 +1073,3 @@ function run_chain(chain) {
 }
 
 run();
-
