@@ -38,7 +38,7 @@ var config = {
 	},
 
 	database: {
-		ssl: true,
+		ssl: false,
 		connstr: process.env.DATABASE_URL,
 		max_connections: 8
 	},
