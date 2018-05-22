@@ -1,7 +1,7 @@
 var config = require('../config');
 var db = require('../lib/db');
 var phone = require('phone');
-var uuid = require('node-uuid');
+var uuid = require('uuid/v4');
 
 /**
  * takes a mobile number or chat username and turns it into a standard format
@@ -107,7 +107,7 @@ exports.wipe = function(username)
 			if (user.id == config.bot.user_id) throw new Error('can\'t wipe the bot user');
 
 			user_id = user.id;
-			var new_username = 'deleted:'+uuid.v4();
+			var new_username = 'deleted:'+uuidv4();
 
 			return db.query([
 				'UPDATE users ',
@@ -132,4 +132,3 @@ exports.wipe = function(username)
 			].join('\n'), {id: user_id});
 		});
 };
-

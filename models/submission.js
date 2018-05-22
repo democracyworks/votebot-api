@@ -2,7 +2,7 @@ var Promise = require('bluebird');
 var config = require('../config');
 var db = require('../lib/db');
 var log = require('../lib/logger');
-var uuid = require('node-uuid');
+var uuid = require('uuid/v4');
 
 exports.create = function(user_id, conversation_id, options)
 {
@@ -11,7 +11,7 @@ exports.create = function(user_id, conversation_id, options)
 	var submission = {
 		user_id: user_id,
 		conversation_id: conversation_id,
-		form_stuffer_reference: uuid.v4(),
+		form_stuffer_reference: uuidv4(),
 		created: db.now()
 	};
 
