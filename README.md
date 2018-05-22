@@ -29,7 +29,7 @@ internal details.
 
 ## Service dependencies
 
-* **[Node.js 4.4+][4]**
+* **[Node.js 8.x+][4]**
 * **[npm][5]**
 * **[Postgresql 9.5+][6]**
 * **[Twilio API][1]**
