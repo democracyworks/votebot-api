@@ -87,6 +87,8 @@ Here are the specific environment variables, and what they do:
 
 * **`VOTEBOT_API_KEY`**: key used to authenticate to votebot-forms
 
+* **`SPARKPOST_API_KEY`**: API key to send email via SparkPost[7]
+
 
 ### Create the config.js file
 
@@ -136,3 +138,4 @@ node server.js
 [4]: https://nodejs.org/en/
 [5]: https://www.npmjs.com/
 [6]: https://www.postgresql.org/
+[7]: https://www.sparkpost.com/
