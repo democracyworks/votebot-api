@@ -1,0 +1,20 @@
+version: "2"
+services:
+  app:
+    build:
+      context: "."
+    depends_on:
+      - db
+    environment:
+      - TWILIO_ACCOUNT_SID
+      - TWILIO_AUTH_TOKEN
+      - TWILIO_FROM_NUMBER
+      - SPARKPOST_API_KEY
+      - DATABASE_URL=postgres://postgres:supersecret@db/postgres
+      - PORT=80
+    ports:
+      - "8080:80"
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_PASSWORD: supersecret
