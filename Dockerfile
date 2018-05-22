@@ -13,4 +13,4 @@ RUN npm install
 COPY ./ /usr/src/app
 RUN cp config.tpl.js config.js
 
-CMD ["node", "server.js"]
+CMD ["./docker-entrypoint.sh"]
