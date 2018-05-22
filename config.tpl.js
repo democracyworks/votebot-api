@@ -28,7 +28,7 @@ var config = {
 		sparkpost: {
 			api_key: process.env.SPARKPOST_API_KEY
 		},
-		from: 'info@hellovote.org',
+		from: 'info@hellovote.democracy.works',
 	},
 
 	// parameters for next election
