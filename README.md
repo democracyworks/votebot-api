@@ -13,6 +13,19 @@ National Mail Voter Registration PDF[3] that the user can then sign and
 mail to their Secretary of State. Optionally, a postage-paid return envelope
 can be mailed to the users, so they don't have to deal with printing or postage.
 
+## Docker
+
+There is a `Dockerfile` and a dev-environment-focused `docker-compose.yml` in
+the repo. So if you have Docker(-compose) installed, running this is as simple
+as:
+
+1. Setup your `.env` file (see `env.sample`).
+1. Run `docker-compose build` (optional the first run but necessary to pick up
+	changes after that)
+1. Run `docker-compose up`
+
+The rest of this README is for running outside of Docker and/or documenting
+internal details.
 
 ## Service dependencies
 
