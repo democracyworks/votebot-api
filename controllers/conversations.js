@@ -34,7 +34,7 @@ var create = function(req, res)
 			resutil.send(res, convo);
 		})
 		.catch(function(err) {
-            resutil.error(res, 'Problem starting conversation', err);
+      resutil.error(res, 'Problem starting conversation', err);
 		});
 };
 
@@ -78,7 +78,7 @@ var new_message = function(req, res)
 		conversation = _conversation;
 
 		if(!conversation) throw error('Conversation '+conversation_id+' not found', {code: 404});
-		
+
 		return message_model.create(user_id, conversation_id, data)
 	})
 	.then(function(message) {

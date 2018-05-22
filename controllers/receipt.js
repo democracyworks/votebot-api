@@ -13,7 +13,6 @@ var config = require('../config');
 var language = require('../lib/language');
 var moment = require('moment-timezone');
 
-
 exports.hook = function(app)
 {
     app.post('/receipt/:username', create); // TODO, secure with auth.key shared with votebot-forms
@@ -84,15 +83,15 @@ var create = function(req, res)
 
         if (status !== 'success')
             return 'failed, get over it';
-        
+
         if (user.settings.submit_form_type === 'NVRA')
             if (mail_eta)
-                return email.sendMailReceipt(user, pdf_url, mail_eta, mail_carrier);                
+                return email.sendMailReceipt(user, pdf_url, mail_eta, mail_carrier);
             else
                 return email.sendNVRAReceipt(user, pdf_url);
         else
             return email.sendOVRReceipt(user);
-                
+
     }).then(function(emailResult) {
         log.info('receipt: email result: LOL');
     })
