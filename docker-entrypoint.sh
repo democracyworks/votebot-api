@@ -6,4 +6,8 @@ node tools/run-schema.js
 
 echo "Running VoteBot API server on port ${PORT}"
 
-exec node server.js
+if [[ "${APP_ENVIRONMENT}" == "production" ]]; then
+  exec npm start
+else
+  exec node server.js
+fi
