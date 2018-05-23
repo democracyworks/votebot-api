@@ -1,6 +1,6 @@
 version: "2"
 services:
-  app:
+  api:
     build:
       context: "."
     depends_on:
@@ -11,9 +11,23 @@ services:
       - TWILIO_FROM_NUMBER
       - SPARKPOST_API_KEY
       - DATABASE_URL=postgres://postgres:supersecret@db/postgres
+      - LOGLEVEL=info
       - PORT=80
     ports:
       - "8080:80"
+  notifier:
+    build:
+      context: "."
+    command: node --optimize_for_size --max_old_space_size=13192 --gc_interval=100 notifier.js
+    depends_on:
+      - db
+    environment:
+      - TWILIO_ACCOUNT_SID
+      - TWILIO_AUTH_TOKEN
+      - TWILIO_FROM_NUMBER
+      - SPARKPOST_API_KEY
+      - LOGLEVEL=info
+      - DATABASE_URL=postgres://postgres:supersecret@db/postgres
   db:
     image: postgres:10-alpine
     environment:
