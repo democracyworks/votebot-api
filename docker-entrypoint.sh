@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
 node tools/run-schema.js
 
