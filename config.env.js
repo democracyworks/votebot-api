@@ -1,4 +1,4 @@
-require('newrelic');
+// require('newrelic'); TODO: Figure out how to make this work
 
 var config = {
 	environment: process.env.APP_ENVIRONMENT,
