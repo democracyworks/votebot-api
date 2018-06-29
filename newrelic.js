@@ -22,5 +22,6 @@ exports.config = {
      * production applications.
      */
     level: 'info'
-  }
+  },
+  strip_exception_messages: { enabled: false }
 }
