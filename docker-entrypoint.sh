@@ -3,7 +3,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [[ -n "${DATABASE_USERNAME}" ]]; then
+if [[ -n "${DATABASE_USERNAME:-}" ]]; then
   export DATABASE_URL="postgres://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@localhost:5432/postgres"
 fi
 
