@@ -22,7 +22,7 @@ exports.verify = function(user)
             "dob": date_of_birth.format("YYYY*") // just send year to TargetSmart
             // they do an exact match on what they have, but their default value for unknowns is 0101
             // which is not helpful. so, just match on year now and filter later
-        }
+        };
 
         var request_options = {
             url: 'https://api.targetsmart.com/voter-registration-check',

@@ -2,7 +2,7 @@ var Promise = require('bluebird');
 var config = require('../config');
 var db = require('../lib/db');
 var log = require('../lib/logger');
-var uuid = require('uuid/v4');
+var uuidv4 = require('uuid/v4');
 
 exports.create = function(user_id, conversation_id, options)
 {
