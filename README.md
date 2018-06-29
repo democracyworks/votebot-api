@@ -92,7 +92,7 @@ Here are the specific environment variables, and what they do:
 
 ### Create the config.js file
 
-Copy the `config.tpl.js` into a file called `config.js`. Since this file
+Copy the `config.env.js` into a file called `config.js`. Since this file
 references the environment variables you just defined, there's no need for extra
 configuration. It's kind of an anachronism at this point.
 

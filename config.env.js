@@ -1,23 +1,24 @@
+require('newrelic');
+
 var config = {
+	environment: process.env.APP_ENVIRONMENT,
 	port: process.env.PORT,
-	environment: 'production' || 'dev', // used for switching notify endpoints
-	//make sure this is unique between deployments that share a Twilio account!
 
 	// the app website for votebot
 	app: {
-		url: 'http://localhost:3000',
-		submit_pdf_url: 'http://localhost:5000/pdf',
-		submit_ovr_url: 'http://localhost:5000/ovr',
+		url: process.env.URL,
+		submit_pdf_url: process.env.SUBMIT_PDF_URL,
+		submit_ovr_url: process.env.SUBMIT_OVR_URL,
 		admin_password: process.env.ADMIN_PASSWORD,
-		force_ssl: false,
-		disabled: true
+		force_ssl: process.env.FORCE_SSL ? true : false,
+        disabled: false
 	},
 
 	// app-wide logging
 	logging: {
 		level: process.env.LOGLEVEL || 'error',
 		sentry: process.env.SENTRY_DSN,
-		validation_errors: 'postgres',
+		validation_errors: 'postgres', // secure connections also require env[PGSSLMODE]=require
 		// sends detailed error information back with failed requests
 		// true when developing, false in prod
 		error_responses: false,
@@ -28,17 +29,17 @@ var config = {
 		sparkpost: {
 			api_key: process.env.SPARKPOST_API_KEY
 		},
-		from: 'info@hellovote.democracy.works',
+		from: process.env.MAIL_FROM_ADDRESS,
 	},
 
 	// parameters for next election
 	election: {
 		date: process.env.NEXT_ELECTION_DATE || '2018-11-06',
-		ignore_deadlines: true // for when we don't have google civic updates for the next election
+		ignore_deadlines: process.env.IGNORE_ELECTION_DEADLINES || false,
 	},
 
 	database: {
-		ssl: false,
+		ssl: process.env.DATABASE_SSL || false,
 		connstr: process.env.DATABASE_URL,
 		max_connections: 8
 	},
@@ -50,22 +51,27 @@ var config = {
 		advance_delay_fb: 1000
 	},
 
-	apixu: {
-		key: process.env.APIXU_KEY,
-	},
+    apixu: {
+        key: process.env.APIXU_KEY,
+    },
 
-	electionland: {
+    electionland: {
         api_key: process.env.ELECTIONLAND_API_KEY,
-	},
+    },
 
-	google_civic: {
-		election_id: 5000,
-		api_key: process.env.GOOGLE_API_KEY,
-	},
+    google_civic: {
+        election_id: 4271,
+        api_key: process.env.GOOGLE_API_KEY,
+    },
 
-	smarty_streets: {
+    smarty_streets: {
         auth_id: process.env.SMARTY_STREETS_ID,
         auth_token: process.env.SMARTY_STREETS_TOKEN,
+    },
+
+    target_smart: {
+    	api_key: process.env.TARGET_SMART_KEY,
+    	disabled: process.env.TARGET_SMART_DISABLED || false,
     },
 
 	twilio: {
@@ -77,25 +83,27 @@ var config = {
 		facebook_page_id: process.env.FACEBOOK_PAGE_ID,
 	},
 
-	facebook: {
-		verify_token: 'something secret',
-		access_token: 'your facebook page access token lol'
-    },
+  facebook: {
+		verify_token: process.env.FACEBOOK_VERIFY_TOKEN,
+		access_token: process.env.FACEBOOK_ACCESS_TOKEN
+  },
 
-    slack: {
+  slack: {
 		verify_token: process.env.SLACK_VERIFY_TOKEN,
 		client_secret: process.env.SLACK_CLIENT_SECRET,
 		client_id: process.env.SLACK_CLIENT_ID
-    },
+  },
 
-    line: {
-    	api_key: process.env.LINE_API_KEY
-    },
+  line: {
+  	api_key: process.env.LINE_API_KEY
+  },
 
-    skype: {
-    	api_key: process.env.SKYPE_API_KEY,
-    	api_secret: process.env.SKYPE_API_SECRET
-    },
+  skype: {
+  	api_key: process.env.SKYPE_API_KEY,
+  	api_secret: process.env.SKYPE_API_SECRET
+  },
+
+  votebot_api_key: process.env.VOTEBOT_API_KEY,
 
 	session: {
 		secret: process.env.SESSION_SECRET
@@ -107,3 +115,4 @@ var config = {
 };
 
 module.exports = config;
+
